@@ -5,29 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Validation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 
 <body>
-    <form action="/" method="get">
+    <div class="err-msg"></div>
+    <form class="form" action="/" method="get" novalidate>
         <div>
             <label for="email">Email:</label>
-            <input id="email" type="email">
+            <input id="email" type="email" placeholder="example@example.com" required>
+            <span class="email-err"></span>
         </div>
         <div>
             <label for="country">Country:</label>
-            <input id="country" type="text">
+            <input id="country" type="text" placeholder="Brazil" pattern="[A-Za-z]+" required>
+            <span class="country-err"></span>
         </div>
         <div>
             <label for="postal-code">Postal Code:</label>
-            <input id="postal-code" type="number">
+            <input id="postal-code" type="text" pattern="^\d{4}$" size="4" placeholder="0000" required>
+            <span class="postal-err"></span>
         </div>
         <div>
             <label for="password">Password:</label>
-            <input id="password" type="password">
+            <input id="password" type="password" placeholder="********" minlength="8" required>
+            <span class="password-err"></span>
         </div>
         <div>
             <label for="password-confirmation">Confirm Password:</label>
-            <input id="password-confirmation" type="password">
+            <input id="password-confirmation" type="password" placeholder="********" minlength="8" required>
+            <span class="password-confirm-err"></span>
         </div>
         <button type="submit">Submit</button>
     </form>
